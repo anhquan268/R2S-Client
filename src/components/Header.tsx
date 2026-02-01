@@ -91,9 +91,9 @@ const Header: React.FC = () => {
     <header className="w-full border-b top-0 left-0 bg-white z-50">
       {/* Banner khuyến mãi */}
       <div className="bg-black text-white flex justify-between items-center py-2 px-8 text-sm h-12 gap-x-16">
-      {/* Văn bản khuyến mãi */}
-      <span className="font-[Poppins] text-[14px] flex-1 text-center text-gray-300">
-      Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
+        {/* Văn bản khuyến mãi */}
+        <span className="font-[Poppins] text-[14px] flex-1 text-center text-gray-300 hidden md:block">
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
           <a href="#" className="font-semibold hover:border-b-2 hover:border-white">ShopNow</a>
         </span>
 
