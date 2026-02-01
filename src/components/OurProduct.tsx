@@ -3,14 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import axios from "axios";
+import { mockProducts } from "../data/mockProducts";
 
 const fetchProducts = async (searchTerm: string) => {
-  const url = searchTerm.length > 0 
-    ? `https://devapi.uniscore.vn/uri/api/products/search?name=${searchTerm}`
-    : "https://devapi.uniscore.vn/uri/api/products";
-  const { data } = await axios.get(url);
-  return Array.isArray(data.data) ? data.data : [];
+  if (searchTerm.length > 0) {
+    return mockProducts.filter(product => 
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  return mockProducts;
 };
 
 const OurProduct = () => {

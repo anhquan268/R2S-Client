@@ -5,13 +5,15 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Header from "../components/Header";
+import { mockProducts } from "../data/mockProducts";
 
 const fetchProducts = async (searchTerm: string) => {
-  const url = searchTerm
-    ? `https://devapi.uniscore.vn/uri/api/products/search?name=${searchTerm}`
-    : "https://devapi.uniscore.vn/uri/api/products";
-  const { data } = await axios.get(url);
-  return Array.isArray(data.data) ? data.data : [];
+  if (searchTerm.length > 0) {
+    return mockProducts.filter(product => 
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  return mockProducts;
 };
 
 const ProductManage = () => {
@@ -191,7 +193,10 @@ const ProductManage = () => {
       }
   
       toast.success("Product deleted successfully!", {autoClose: 1500});
-      refetch();
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1600);
     } catch (error: any) {
       toast.error("Failed to delete product!");
       console.error("Delete error:", error);

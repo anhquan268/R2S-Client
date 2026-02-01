@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Header: React.FC = () => {
-  const [cartCount, setCartCount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-  let timeoutId: NodeJS.Timeout;
-  const navigate = useNavigate();
+  const [cartCount, setCartCount] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement | null>(null)
+  let timeoutId: NodeJS.Timeout
+  const navigate = useNavigate()
 
   const handleClick1 = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
@@ -36,10 +36,9 @@ const Header: React.FC = () => {
   }
   const handleClick7 = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    if (isLoggedIn){
+    if (isLoggedIn) {
       navigate("/profile")
-    }
-    else {
+    } else {
       navigate("/login")
     }
   }
@@ -49,59 +48,78 @@ const Header: React.FC = () => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("user"); // Remove user data
-    localStorage.removeItem("checkoutInfo");
-    
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("user") // Remove user data
+    localStorage.removeItem("checkoutInfo")
+
     navigate("/login")
-    window.location.reload();
-    window.scrollTo(0, 0);
-  };
+    window.location.reload()
+    window.scrollTo(0, 0)
+  }
 
   useEffect(() => {
     // Kiểm tra trạng thái đăng nhập
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedIn);
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true"
+    setIsLoggedIn(loggedIn)
 
     // Kiểm tra vai trò ADMIN
-    const userData = localStorage.getItem("user");
+    const userData = localStorage.getItem("user")
     if (userData) {
-      const user = JSON.parse(userData);
+      const user = JSON.parse(userData)
       if (user.roles && user.roles[0] === "ADMIN") {
-        setIsAdmin(true);
+        setIsAdmin(true)
       }
     }
-    
+
     // Lấy giỏ hàng từ localStorage
-    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCartCount(storedCart.length);
+    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]")
+    setCartCount(storedCart.length)
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && dropdownRef.current instanceof Node && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+      if (
+        dropdownRef.current &&
+        dropdownRef.current instanceof Node &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false)
       }
-    };
-  
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <header className="w-full border-b top-0 left-0 bg-white z-50">
       {/* Banner khuyến mãi */}
       <div className="bg-black text-white flex justify-between items-center py-2 px-8 text-sm h-12 gap-x-16">
-      {/* Văn bản khuyến mãi */}
-      <span className="font-[Poppins] text-[14px] flex-1 text-center text-gray-300">
-      Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
-          <a href="#" className="font-semibold hover:border-b-2 hover:border-white">ShopNow</a>
+        {/* Văn bản khuyến mãi */}
+        <span className="font-[Poppins] text-[14px] flex-1 text-center text-gray-300 hidden md:block">
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
+          <a
+            href="#"
+            className="font-semibold hover:border-b-2 hover:border-white"
+          >
+            ShopNow
+          </a>
+        </span>
+
+        <span className="font-[Poppins] text-[14px] flex-1 text-center text-gray-300 md:hidden">
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
+          <a
+            href="#"
+            className="font-semibold hover:border-b-2 hover:border-white"
+          >
+            ShopNow
+          </a>
         </span>
 
         {/* Chọn ngôn ngữ */}
-        <div className="flex sm:flex items-center gap-2 cursor-pointer text-gray-300">
+        {/* <div className="flex sm:flex items-center gap-2 cursor-pointer text-gray-300">
           <span>English</span>
           <img src="/R2S-Client/DropDown.svg" alt="Search" className="w-3.5 h-3.5 cursor-pointer" />
-        </div>
+        </div> */}
       </div>
 
       {/* Thanh điều hướng */}
@@ -111,112 +129,224 @@ const Header: React.FC = () => {
         {/* Danh mục menu */}
         <div className="hidden md:flex md:space-x-4 md:text-sm lg:text-[16px] lg:space-x-12 space-x-8 text-[16px]">
           {isAdmin ? (
-            <a href="#" onClick={handleClick3} className="hover:border-b-2 hover:border-black">Home</a>
+            <a
+              href="#"
+              onClick={handleClick3}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Home
+            </a>
           ) : (
-            <a href="/R2S-Client/" className="hover:border-b-2 hover:border-black">Home</a>
+            <a
+              href="/R2S-Client/"
+              className="hover:border-b-2 hover:border-black"
+            >
+              Home
+            </a>
           )}
           {isAdmin ? (
-            <a href="#" onClick={handleClick4} className="hover:border-b-2 hover:border-black">Orders</a>
+            <a
+              href="#"
+              onClick={handleClick4}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Orders
+            </a>
           ) : (
-            <a href="#" className="hover:border-b-2 hover:border-black">About</a>
+            <a href="#" className="hover:border-b-2 hover:border-black">
+              About
+            </a>
           )}
           {isLoggedIn ? (
-            <a href="#" onClick={handleClick5} className="hover:border-b-2 hover:border-black">Contact</a>
+            <a
+              href="#"
+              onClick={handleClick5}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Contact
+            </a>
           ) : (
-            <a href="#" onClick={handleClick1} className="hover:border-b-2 hover:border-black">Sign In</a>
+            <a
+              href="#"
+              onClick={handleClick1}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Sign In
+            </a>
           )}
           {isLoggedIn ? (
-            <a href="#" onClick={handleClick8} className="hover:border-b-2 hover:border-black">Account</a>
+            <a
+              href="#"
+              onClick={handleClick8}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Account
+            </a>
           ) : (
-            <a href="#" onClick={handleClick2} className="hover:border-b-2 hover:border-black">Sign Up</a>
+            <a
+              href="#"
+              onClick={handleClick2}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Sign Up
+            </a>
           )}
         </div>
-
 
         <div className="flex items-center space-x-4">
-
-        {/* Ô tìm kiếm */}
-        <div className="flex sm:w-[243px] md:w-[195px] lg:w-[243px] xl:w-[243px] 2xl:w-[243px] items-center bg-gray-100 px-4 py-2 rounded-lg text-[12px] w-[180px] h-[38px]">
+          {/* Ô tìm kiếm */}
+          <div className="hidden md:flex sm:w-[243px] md:w-[195px] lg:w-[243px] xl:w-[243px] 2xl:w-[243px] items-center bg-gray-100 px-4 py-2 rounded-lg text-[12px] w-[180px] h-[38px]">
             <input
-            type="text"
-            placeholder="What are you looking for?"
-            className="bg-transparent outline-none cursor-pointer text-[10px] sm:text-[12px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] flex-1"
-            aria-label="Search"
+              type="text"
+              placeholder="What are you looking for?"
+              className="bg-transparent outline-none cursor-pointer text-[10px] sm:text-[12px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] flex-1"
+              aria-label="Search"
             />
-            <img src="/R2S-Client/SearchIcon.svg" alt="Search" className="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer" />
-        </div>
+            <img
+              src="/R2S-Client/SearchIcon.svg"
+              alt="Search"
+              className="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer"
+            />
+          </div>
 
-        {/* Biểu tượng giỏ hàng và yêu thích */}
-        <div className="flex items-center space-x-4 relative">
-            <img src="/R2S-Client/Wishlist.svg" alt="Favorite" className="w-[32px] h-[32px] cursor-pointer" tabIndex={0}/>
+          {/* Biểu tượng giỏ hàng và yêu thích */}
+          <div className="flex items-center space-x-4 relative">
+            {/* <img src="/R2S-Client/Wishlist.svg" alt="Favorite" className="w-[32px] h-[32px] cursor-pointer" tabIndex={0}/> */}
             <a href="#" onClick={handleClick6} className="relative">
-              <img src="/R2S-Client/Cart1.svg" alt="Cart" className="w-[32px] h-[32px] cursor-pointer" tabIndex={0} />
+              <img
+                src="/R2S-Client/Cart1.svg"
+                alt="Cart"
+                className="w-[32px] h-[32px] cursor-pointer"
+                tabIndex={0}
+              />
               {cartCount > 0 && (
-              <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                {cartCount}
-              </span>
+                <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
               )}
             </a>
-            <div className="relative inline-block"
+            <div
+              className="relative inline-block"
               onMouseEnter={() => {
-                clearTimeout(timeoutId);
-                setIsOpen(true);
+                clearTimeout(timeoutId)
+                setIsOpen(true)
               }}
               onMouseLeave={() => {
-                timeoutId = setTimeout(() => setIsOpen(false), 200); // Trì hoãn 1 giây trước khi đóng
+                timeoutId = setTimeout(() => setIsOpen(false), 200) // Trì hoãn 1 giây trước khi đóng
               }}
-            >              
+            >
               <a href="#" onClick={handleClick7} className="flex items-center">
-              <img
-                src={isLoggedIn ? "/R2S-Client/userlogged.svg" : "/R2S-Client/user.svg"}
-                alt="User"
-                className="w-[32px] h-[32px] cursor-pointer"
-              />               
+                <img
+                  src={
+                    isLoggedIn
+                      ? "/R2S-Client/userlogged.svg"
+                      : "/R2S-Client/user.svg"
+                  }
+                  alt="User"
+                  className="w-[32px] h-[32px] cursor-pointer"
+                />
               </a>
               {isLoggedIn && isOpen && (
-              <div 
-              className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border z-50"
-              style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", minWidth: "200px" }}
-              >
-                <a href="#" onClick={handleClick8} className="block px-4 py-2 hover:bg-gray-100">
-                  My Profile
-                </a>                             
-                <a href="#" onClick={handleLogout} className="block px-4 py-2 hover:bg-gray-100">
-                  Log Out
-                </a>
-              </div>
+                <div
+                  className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border z-50"
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    minWidth: "200px"
+                  }}
+                >
+                  <a
+                    href="#"
+                    onClick={handleClick8}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    My Profile
+                  </a>
+                  <a
+                    href="#"
+                    onClick={handleLogout}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Log Out
+                  </a>
+                </div>
               )}
             </div>
-        </div>
+          </div>
         </div>
       </nav>
       <nav className="md:hidden flex items-center justify-center max-w-7xl mx-auto p-2">
         {/* Danh mục menu */}
         <div className="space-x-8 text-[16px]">
           {isAdmin ? (
-            <a href="#" onClick={handleClick3} className="hover:border-b-2 hover:border-black">Home</a>
+            <a
+              href="#"
+              onClick={handleClick3}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Home
+            </a>
           ) : (
-            <a href="/R2S-Client/" className="hover:border-b-2 hover:border-black">Home</a>
+            <a
+              href="/R2S-Client/"
+              className="hover:border-b-2 hover:border-black"
+            >
+              Home
+            </a>
           )}
           {isAdmin ? (
-            <a href="#" onClick={handleClick4} className="hover:border-b-2 hover:border-black">Orders</a>
+            <a
+              href="#"
+              onClick={handleClick4}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Orders
+            </a>
           ) : (
-            <a href="#" className="hover:border-b-2 hover:border-black">About</a>
+            <a href="#" className="hover:border-b-2 hover:border-black">
+              About
+            </a>
           )}
           {isLoggedIn ? (
-            <a href="#" onClick={handleClick5} className="hover:border-b-2 hover:border-black">Contact</a>
+            <a
+              href="#"
+              onClick={handleClick5}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Contact
+            </a>
           ) : (
-            <a href="#" onClick={handleClick1} className="hover:border-b-2 hover:border-black">Sign In</a>
+            <a
+              href="#"
+              onClick={handleClick1}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Sign In
+            </a>
           )}
           {isLoggedIn ? (
-            <a href="#" onClick={handleClick8} className="hover:border-b-2 hover:border-black">Account</a>
+            <a
+              href="#"
+              onClick={handleClick8}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Account
+            </a>
           ) : (
-            <a href="#" onClick={handleClick2} className="hover:border-b-2 hover:border-black">Sign Up</a>
+            <a
+              href="#"
+              onClick={handleClick2}
+              className="hover:border-b-2 hover:border-black"
+            >
+              Sign Up
+            </a>
           )}
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

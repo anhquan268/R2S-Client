@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { mockProducts } from "../data/mockProducts";
 
 export interface Product {
   id: number;
@@ -15,10 +15,7 @@ export interface Product {
 }
 
 const fetchAllProducts = async (): Promise<Product[]> => {
-  const { data } = await axios.get("https://devapi.uniscore.vn/uri/api/products");
-
-  // ✅ Đảm bảo data luôn là một mảng
-  return Array.isArray(data.data) ? data.data : [];
+  return mockProducts;
 };
 
 const useGetAllProducts = () => {
