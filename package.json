@@ -3,7 +3,7 @@
   "homepage": "https://anhquan268.github.io/R2S-Client",
   "version": "0.0.0",
   "scripts": {
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",

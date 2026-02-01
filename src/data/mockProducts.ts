@@ -7,10 +7,10 @@ export const mockProducts = [
       price: 29.99,
       description: 'Ergonomic wireless mouse with 2.4GHz connectivity.',
       images: [
-        'https://i.imgur.com/MRvrzXk.png',
-        'https://i.imgur.com/X46GeJr.png',
-        'https://i.imgur.com/ZJGYkaY.png',
-        'https://i.imgur.com/DT624Ij.png'
+        'https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-blue-gallery-01.png',
+        'https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-blue-gallery-02.png',
+        'https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-blue-gallery-03.png',
+        'https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-blue-gallery-04.png'
       ],
       category: 'Electronics',
       brand: 'Logitech',
@@ -24,10 +24,10 @@ export const mockProducts = [
       price: 89.99,
       description: 'RGB backlit mechanical keyboard with brown switches.',
       images: [
-        'https://hexgears.com/cdn/shop/files/M5-1-_1.png?v=1745309620&width=1000',
-        'https://hexgears.com/cdn/shop/files/M5-4-_2.png?v=1745309623&width=1000',
-        'https://hexgears.com/cdn/shop/files/M5-5-_3.png?v=1745309626&width=1000',
-        'https://hexgears.com/cdn/shop/files/M5-3-_4.png?v=1745309629&width=1000'
+        'https://hexgears.com/cdn/shop/files/M5-1-_1.png',
+        'https://hexgears.com/cdn/shop/files/M5-4-_2.png',
+        'https://hexgears.com/cdn/shop/files/M5-5-_3.png',
+        'https://hexgears.com/cdn/shop/files/M5-3-_4.png'
       ],
       category: 'Electronics',
       brand: 'Keychron',
@@ -41,10 +41,10 @@ export const mockProducts = [
       price: 15.99,
       description: 'Adjustable aluminum smartphone stand for desk use.',
       images: [
-        'https://i.imgur.com/l3etd15.png',
-        'https://i.imgur.com/52aB41o.png',
-        'https://i.imgur.com/MCJUDqU.png',
-        'https://i.imgur.com/2S2NzId.png'
+        'https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=400,quality=75/product/Yarr-Metal-Bracket-Mobile-Phone-Holder-Stand-top-view.png',
+        'https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=400,quality=75/product/Yarr-Metal-Bracket-Mobile-Phone-Holder-Stand-front-view.png',
+        'https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=400,quality=75/product/Yarr-Metal-Bracket-Mobile-Phone-Holder-Stand-back-view-gray.png',
+        'https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=400,quality=75/product/Yarr-Metal-Bracket-Mobile-Phone-Holder-Stand-side-view-gray.png'
       ],
       category: 'Accessories',
       brand: 'Anker',
@@ -75,10 +75,10 @@ export const mockProducts = [
       price: 249.99,
       description: 'Ergonomic gaming chair with lumbar support and adjustable armrests.',
       images: [
-        'https://i.imgur.com/0VKVWXW.png',
-        'https://i.imgur.com/MiAoOBm.png',
-        'https://i.imgur.com/UISMdA2.png',
-        'https://i.imgur.com/3SmHbCs.png'
+        'https://product.hstatic.net/1000372174/product/dsc_8300_2b0794d85d35469fa21cb8e8e3277b71_grande.png',
+        'https://product.hstatic.net/1000372174/product/dsc_8304_a8f19898f96940ab972b4cf1673e0e3a_1024x1024.png',
+        'https://product.hstatic.net/1000372174/product/dsc_8294_d4428085540a4d4e82eb1f44d0afaff8_1024x1024.png',
+        'https://product.hstatic.net/1000372174/product/dsc_8311_3_ffe6aaf9b9cc450581432650091870c6_1024x1024.png'
       ],
       category: 'Furniture',
       brand: 'Secretlab',
@@ -92,10 +92,10 @@ export const mockProducts = [
       price: 39.99,
       description: "10,000mAh portable power bank with fast charging support.",
       images: [
-        "https://i.imgur.com/yCIKpw7.png",
-        "https://i.imgur.com/iahlQ8f.png",
-        "https://i.imgur.com/RB7Opya.png",
-        "https://i.imgur.com/wwwDXWa.png"
+        "https://www.cygnett.com/cdn/shop/files/CY4501PBCHE-1_90a0339a-5e57-4bb2-bc15-83cd6d0bbff5_1188x@2x.png?v=1706674222",
+        "https://www.cygnett.com/cdn/shop/files/CY4501PBCHE-2_ce185bcf-3ccf-4602-87c2-abb0130bcdc0_1188x@2x.png?v=1706674222",
+        "https://www.cygnett.com/cdn/shop/files/CY4501PBCHE-3_f5c0dbd2-ad6c-433e-92a4-eb266c54aa80_1188x@2x.png?v=1706674223",
+        "https://www.cygnett.com/cdn/shop/files/CY4501PBCHE-4_96d4dd70-d0c5-423f-ab43-799dae2abd37_1188x@2x.png?v=1706674223"
       ],
       category: "Accessories",
       brand: "Anker",
@@ -109,10 +109,10 @@ export const mockProducts = [
       price: 24.99,
       description: "6-in-1 USB-C hub with HDMI, USB 3.0, and SD card slots.",
       images: [
-        "https://i.imgur.com/JzubS0I.png",
-        "https://i.imgur.com/QgDjFsS.png",
-        "https://i.imgur.com/XtBD5kl.png",
-        "https://i.imgur.com/j3QlZWd.png"
+        "https://hypervietnam.vn/wp-content/uploads/2024/03/HD5002-01-Right-Angle-768x768-1.png",
+        "https://hypervietnam.vn/wp-content/uploads/2024/03/HD5002-02-Left-Angle-768x768-1.png",
+        "https://hypervietnam.vn/wp-content/uploads/2024/03/HD5002-07-Top-768x768-1.png",
+        "https://hypervietnam.vn/wp-content/uploads/2024/03/HD5002-03-Front-768x768-1.png"
       ],
       category: "Electronics",
       brand: "Ugreen",
@@ -126,10 +126,10 @@ export const mockProducts = [
       price: 29.99,
       description: "Adjustable aluminum laptop stand for desk setups.",
       images: [
-        "https://i.imgur.com/LoYBmlT.png",
-        "https://i.imgur.com/MYpgCsL.png",
-        "https://i.imgur.com/XoJXvUf.png",
-        "https://i.imgur.com/54QzEEj.png"
+        "https://logiix.ca/cdn/shop/files/logiix_FoldableLaptopStand_0004_LaptopStand_Hero02-copy.png?v=1737415195&width=5000",
+        "https://logiix.ca/cdn/shop/files/logiix_FoldableLaptopStand_0000_LaptopStand_Profile05-copy.png?v=1737415195&width=5000",
+        "https://logiix.ca/cdn/shop/files/logiix_FoldableLaptopStand_0002_LaptopStand_Profile02-copy.png?v=1737415195&width=5000",
+        "https://logiix.ca/cdn/shop/files/logiix_FoldableLaptopStand_0005_LaptopStand_Hero03-copy.png?v=1737415182&width=5000"
       ],
       category: "Furniture",
       brand: "Nulaxy",
