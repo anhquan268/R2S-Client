@@ -76,22 +76,22 @@ const Cart = () => {
             <table className="min-w-full border-separate border-spacing-y-4">
               <thead className="shadow-md rounded">
                 <tr>
-                  <th className="p-4 text-[13px] sm:text-[16px]">Product</th>
-                  <th className="p-4 text-left text-[13px] sm:text-[16px]">Price</th>
-                  <th className="p-4 text-left text-[13px] sm:text-[16px]">Quantity</th>
-                  <th className="p-4 text-left text-[13px] sm:text-[16px]">Subtotal</th>
-                  <th className="p-4 text-[13px] sm:text-[16px]">Action</th>
+                  <th className="p-2 md:p-4 text-[13px] sm:text-[16px]">Product</th>
+                  <th className="p-2 md:p-4 text-left text-[13px] sm:text-[16px] hidden-mobile">Price</th>
+                  <th className="p-2 md:p-4 text-left text-[13px] sm:text-[16px]">Quantity</th>
+                  <th className="p-2 md:p-4 text-left text-[13px] sm:text-[16px]">Subtotal</th>
+                  <th className="p-2 md:p-4 text-[13px] sm:text-[16px]">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {updatedCart.length > 0 ? (updatedCart.map((item) => (
                   <tr key={item.id} className="shadow-md rounded">
-                    <td className="p-4 sm:flex items-center gap-2 text-[13px] sm:text-[16px]">
+                    <td className="p-2 md:p-4 sm:flex items-center gap-2 text-[13px] sm:text-[16px]">
                       <img src={item.image} alt={item.name} className="hidden sm:flex w-16 h-16" />
                       {item.name}
                     </td>
-                    <td className="p-2 text-[13px] sm:text-[16px]">${item.price}</td>
-                    <td className="p-4 text-left">
+                    <td className="p-2 md:p-4 text-[13px] sm:text-[16px] hidden-mobile">${item.price}</td>
+                    <td className="p-2 md:p-4 text-left">
                       <div className="flex items-left gap-2">
                         {/* Input để nhập số lượng */}
                         <input
@@ -104,8 +104,8 @@ const Cart = () => {
 
                     </td>
 
-                    <td className="p-4 text-[13px] sm:text-[16px]">${(item.price * item.quantity).toFixed(2)}</td>
-                    <td className="p-2 text-center">
+                    <td className="p-2 md:p-4 text-[13px] sm:text-[16px]">${(item.price * item.quantity).toFixed(2)}</td>
+                    <td className="p-2 md:p-4 text-center">
                       <button
                         className="text-[13px] sm:text-[16px] text-red-500 hover:underline"
                         onClick={() => handleRemoveItem(item.id)}
@@ -153,7 +153,7 @@ const Cart = () => {
         </div>
       </div>
       {cart.length > 0 && (
-        <div className="grid grid-cols-[40%_60%] md:grid-cols-[60%_40%] lg:gap-10 mt-10">
+        <div className="grid grid-cols md:grid-cols-[60%_40%] lg:gap-10 mt-10">
           <div className="justify-between">
 
             <div className="flex flex-col sm:flex-col md:flex-row">
@@ -167,7 +167,7 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="border border-black p-6 rounded w-full lg:w-[319px] xl:w-[345px] 2xl:w-[364px]">
+          <div className="mt-4 md:mt-0 border border-black p-6 rounded w-full lg:w-[319px] xl:w-[345px] 2xl:w-[364px]">
             <h2 className="text-[20px] font-medium mb-4">Cart Total</h2>
             <div className="flex justify-between mb-4 text-[14px] md:text-[16px] border-b border-gray-400">
               <span>Subtotal:</span>
